@@ -1,0 +1,3 @@
+[submodule "vendor/IRC"]
+	path = vendor/IRC
+	url = git://github.com/gf3/IRC-js.git
