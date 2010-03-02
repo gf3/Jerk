@@ -6,7 +6,7 @@ A fun little IRC bot library for node.js. Ridiculously simple to set-up and get 
 
 Seriously, it's stupidly simple.
 
-### You First Bot
+### Your First Bot
 
 Firstly, we're gonna have to clone us some Jerk. So let's do that:
 
