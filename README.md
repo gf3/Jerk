@@ -10,7 +10,7 @@ Seriously, it's stupidly simple.
 
 Firstly, we're gonna have to clone us some Jerk. So let's do that:
 
-    git clone git://github.com/gf3/Jerk.git && cd Jerk && git submodule init && git submodule update && cd vendor/IRC && git submodule init && git submodule update && cd ../..
+    git clone git://github.com/gf3/Jerk.git
 
 Hoo haa, now that we're locked and loaded, let's write a goddamn bot! We need to include Jerk:
 
