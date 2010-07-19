@@ -59,6 +59,14 @@ The `connect` method returns an object with some handy methods that you can use 
     , quit:   Function( message )
     }
 
+Example:
+
+    var superBot = jerk( ... ).connect(options)
+    // Later...
+    superBot.say('#myChan', 'Soup noobs?')
+    superBot.join('#haters')
+    superBot.action('#hates', 'hates all of you!')
+
 I think everything there is pretty self-explanatory, no? 
 
 ### Running Your Bot
