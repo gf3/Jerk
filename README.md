@@ -40,6 +40,8 @@ Hah, now you're going to cry once you see how easy this is:
 
 Really. That's it.
 
+### ADVANCED USER OF THE INTERNETS
+
 The jerk object (`j`) has only one method: `watch_for`. Which takes two arguments, the first can be either a string or a regex to match messages against. The second argument is your hollaback function for when a match is found. The hollaback receives only one argument, the `message` object. It looks like this:
 
     { user:       String
