@@ -45,14 +45,29 @@ The jerk object (`j`) has only one method: `watch_for`. Which takes two argument
     { user:       String
     , source:     String
     , match_data: Array
-    , say:        Function
+    , say:        Function( message )
     }
 
-I think everything there is pretty self-explanatory, no? One thing I will tell you though, is the `say` method is smart enough to reply to the context that the message was received, so you don't need to pass it any extra info, just a reply :)
+One thing I will tell you though, is the `say` method is smart enough to reply to the context that the message was received, so you don't need to pass it any extra info, just a reply :)
+
+The `connect` method returns an object with some handy methods that you can use outside of your `watch_for`s:
+
+    { say:    Function( destination, message )
+    , action: Function( destination, action )
+    , part:   Function( channel )
+    , join:   Function( channel )
+    , quit:   Function( message )
+    }
+
+I think everything there is pretty self-explanatory, no? 
 
 ### Running Your Bot
 
     node yourBot9001.js
+
+Run your bot on a remote server:
+
+    nohup node yourBot9001.js &
 
 Done.
 
