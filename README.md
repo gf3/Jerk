@@ -97,5 +97,5 @@ Wrote a bot with Jerk? [Email me](mailto:gianni@runlevel6.org) and I'll add it t
 
 Written by [Gianni Chiappetta](http://github.com/gf3) &ndash; [gf3.ca](http://gf3.ca)
 
-I don't want to throw a license on this unless I really have to, they're kinda silly. However you can expect this code to remain free and open.
+Jerk is [UNLICENSED](http://unlicense.org/).
 
