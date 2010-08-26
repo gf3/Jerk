@@ -1,0 +1,10 @@
+{ "name" : "jerk"
+, "version" : "0.0.0"
+, "author" : "Gianni Chiappetta <gianni@runlevel6.org> (http://gf3.ca)"
+, "main" : "./lib/jerk"
+, "license" :
+  { "type" : "Public Domain"
+  , "url" : "http://github.com/gf3/Jerk/raw/master/UNLICENSE"
+  }
+, "repository" : { "type" : "git", "url" : "http://github.com/gf3/Jerk.git" }
+}
