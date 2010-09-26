@@ -1,6 +1,12 @@
 // http://www.faqs.org/rfcs/rfc1459.html :)
 // http://irchelp.org/irchelp/rfc/ :D
 
+/** 
+ *  class IRC
+ *  
+ *  An IRC library for node.js
+**/
+
 var sys = require('sys')
   , net = require('net')
   , Parser = require('./parser_grammar')
@@ -32,6 +38,16 @@ function pp (lol) {
 }
 
 /* ------------------------------ IRC Class ------------------------------ */
+/**
+ * new IRC(options)
+ * - options (Object): Options for specific instance.
+ * 
+ * Creates a new `IRC` instance.
+ * 
+ * ### Examples
+ * 
+ *     var irc = new IRC({ server: 'irc.freenode.net', nick: 'lolbot' });
+**/
 function IRC (options) {
   // Options
   var internal = 
@@ -215,7 +231,7 @@ function IRC (options) {
   }
   
   /**
-   * IRC#addListener(event, listener)
+   * IRC#addListener(event, listener) -> null
    * - event (String): Event to listen for
    * - listener (Function): Event listener, called when event is emitted.
    * 
@@ -233,7 +249,7 @@ function IRC (options) {
   }
   
   /**
-   * IRC#removeListener(event, listener)
+   * IRC#removeListener(event, listener) -> null
    * - event (String): Event to stop listening for
    * - listener (Function): Event listener to unregister
    * 
@@ -250,7 +266,7 @@ function IRC (options) {
   }
   
   /**
-   * IRC#listenOnce(event, listener)
+   * IRC#listenOnce(event, listener) -> null
    * - event (String): Event to listen for
    * - listener (Function): Event listener, called when event is emitted.
    * 
@@ -403,7 +419,7 @@ function IRC (options) {
   }
   
   /**
-   * IRC#channel_mode(channel, mode[, limit][, user][, ban_mask]) -> self
+   * IRC#channelMode(channel, mode[, limit][, user][, ban_mask]) -> self
    * - channel (String): Channel to apply mode
    * - mode (String): Mode to apply
    * - limit (Number): Optional - used in conjunction with `l` mode
@@ -414,30 +430,31 @@ function IRC (options) {
    * 
    * ### Examples
    * 
-   *     irc_instance.channel_mode('#asl', '+im'); // Makes `#asl` moderated and invite only
+   *     irc_instance.channelMode('#asl', '+im'); // Makes `#asl` moderated and invite only
   **/
-  this.channel_mode = function (channel, mode, last) {
+  this.channelMode = function (channel, mode, last) {
     // 4.2.3.1
     return this.raw('MODE' + param(mode) + if_exists(last));
   }
   
   /**
-   * IRC#user_mode(mode) -> self
+   * IRC#userMode(mode) -> self
    * - mode (String): Mode to apply
    * 
    * Set various user modes on yourself. For a full list of user modes, see: http://docs.dal.net/docs/modes.html#3
    * 
    * ### Examples
    * 
-   *     irc_instance.user_mode('-o'); // De-ops user
+   *     irc_instance.userMode('-o'); // De-ops user
   **/
-  this.user_mode = function (mode) {
+  this.userMode = function (mode) {
     // 4.2.3.2
     return this.raw(param(internal.nick, null, ':') + ' MODE' + param(mode))
   }
   
   /**
-   * IRC#topic(channel, topic | hollaback) -> self
+   * IRC#topic(channel, topic) -> self
+   * IRC#topic(channel, hollaback) -> self
    * - channel (String): Channel to set/get topic
    * - topic (String): Topic to set
    * - hollaback (Function): Callback to receive the channel topic. The first argument is the channel, the second is the topic.
@@ -490,7 +507,8 @@ function IRC (options) {
   }
   
   /**
-   * IRC#list([channel], hollaback) -> self
+   * IRC#list(channel, hollaback) -> self
+   * IRC#list(hollaback) -> self
    * - channel (String): Channel to list information for.
    * - hollaback (Function): Callback to receive the channel list. As it's 
    * single parameter it receives one or many arrays with three elements. The
@@ -579,7 +597,8 @@ function IRC (options) {
   }
   
   /**
-   * IRC#version([server, ] hollaback) -> self
+   * IRC#version(server, hollaback) -> self
+   * IRC#version(hollaback) -> self
    * - server (String): Optional, specific server to query.
    * - hollaback (Function): Callback to receive server version info.
    * 
@@ -601,7 +620,7 @@ function IRC (options) {
   }
   
   /**
-   * IRC#privmsg(receiver, message [, protect]) -> return
+   * IRC#privmsg(receiver, message [, protect]) -> self
    * - receiver (String): Recipient of message, can be either a user nick or a channel.
    * - message (String): Message to send.
    * - protect (Boolean): Flood protection for long messages, if `true` will
@@ -612,7 +631,7 @@ function IRC (options) {
    * 
    * ### Examples
    * 
-   *     irc_instance.privmsg('#asl', 'What's up ladiiieeeessssss!?'); // Ask the ladies `what's up`
+   *     irc_instance.privmsg('#asl', 'What\'s up ladiiieeeessssss!?'); // Ask the ladies `what's up`
   **/
   this.privmsg = function (receiver, msg, protect) { var max_length, private_messages, i
     // 4.4.1
@@ -632,10 +651,33 @@ function IRC (options) {
   }
 }
 
-// Version
-IRC.version = '0.01'
+/**
+ * IRC.version -> String
+ *
+ * Version of [[IRC]] code.
+**/
+IRC.version = '0.2.0'
 
-// Options
+/**
+ * IRC.options
+ *
+ * Default global options, all instances will inherit these options.
+ *
+ * ### Defaults
+ *
+ *      IRC.options =
+ *        { server:   '127.0.0.1'
+ *        , port:     6667
+ *        , encoding: 'ascii'
+ *        , nick:     'js-irc'
+ *        , user:
+ *          { username:   'js-irc'
+ *          , hostname:   'thetubes'
+ *          , servername: 'tube1'
+ *          , realname:   'Javascript Bot'
+ *          }
+ *        }
+**/
 IRC.options =
   { server:   '127.0.0.1'
   , port:     6667
