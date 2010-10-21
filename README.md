@@ -8,13 +8,17 @@ Seriously, it's stupidly simple.
 
 ### Your First Bot
 
-Firstly, we're gonna have to clone us some Jerk. So let's do that:
+Firstly, we'll need to grab Jerk. If you use [npm](http://npmjs.org/) it's as easy as:
+
+    npm install jerk
+
+If you prefer straight-up git:
 
     git clone git://github.com/gf3/Jerk.git
 
 Hoo haa, now that we're locked and loaded, let's write a goddamn bot! We need to include Jerk:
 
-    var jerk = require('./path/to/Jerk/lib/jerk')
+    var jerk = require('jerk')
 
 You'll need some `options`. Jerk takes the exact same options object as the [IRC-js library](http://github.com/gf3/IRC-js/). Let's just go ahead and supply some basic info:
 
