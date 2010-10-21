@@ -1,10 +1,20 @@
 { "name" : "jerk"
-, "version" : "0.0.0"
+, "description" : "Stupidly simple IRC bots in Javascript."
 , "author" : "Gianni Chiappetta <gianni@runlevel6.org> (http://gf3.ca)"
+, "contributors" :
+  [ "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)"
+  , "Arnaud Berthomier <oz@cyprio.net> (http://wtf.cyprio.net)"
+  ]
+, "homepage" : "http://github.com/gf3/Jerk"
+, "version" : "1.0.0"
 , "main" : "./lib/jerk"
+, "engines" : [ "node >=0.2.0" ]
+, "repository" :
+  { "type" : "git"
+  , "url" : "http://github.com/gf3/Jerk.git"
+  }
 , "license" :
   { "type" : "Public Domain"
   , "url" : "http://github.com/gf3/Jerk/raw/master/UNLICENSE"
   }
-, "repository" : { "type" : "git", "url" : "http://github.com/gf3/Jerk.git" }
 }
