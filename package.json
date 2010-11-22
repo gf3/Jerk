@@ -6,8 +6,11 @@
   , "Arnaud Berthomier <oz@cyprio.net> (http://wtf.cyprio.net)"
   ]
 , "homepage" : "http://github.com/gf3/Jerk"
-, "version" : "1.0.0"
+, "version" : "1.1.0"
 , "main" : "./lib/jerk"
+, "dependencies" :
+  { "irc-js": "=0.2.8"
+  }
 , "engines" : [ "node >=0.2.0" ]
 , "repository" :
   { "type" : "git"
