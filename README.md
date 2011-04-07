@@ -18,29 +18,29 @@ If you prefer straight-up git:
 
 Hoo haa, now that we're locked and loaded, let's write a goddamn bot! We need to include Jerk:
 
-    var jerk = require('jerk')
+    var jerk = require( 'jerk' )
 
-You'll need some `options`. Jerk takes the exact same options object as the [IRC-js library](http://github.com/gf3/IRC-js/). Let's just go ahead and supply some basic info:
+You'll need some `options`. Jerk takes the exact same options object as the [IRC-js library](https://github.com/gf3/IRC-js/). Let's just go ahead and supply some basic info:
 
     var options =
       { server: 'irc.freenode.net'
       , nick: 'YourBot9001'
-      , channels: ['#your-channel']
+      , channels: [ '#your-channel' ]
       }
 
 Hah, now you're going to cry once you see how easy this is:
 
-    jerk(function(j) {
+    jerk( function( j ) {
 
-      j.watch_for('soup', function(message) {
-        message.say(message.user + ': soup is good food!')
+      j.watch_for( 'soup', function( message ) {
+        message.say( message.user + ': soup is good food!' )
       })
 
-      j.watch_for(/^(.+) are silly$/, function(message) {
-        message.say(message.user + ': ' + message.match_data[1] + ' are NOT SILLY. Don't joke!')
+      j.watch_for( /^(.+) are silly$/, function( message ) {
+        message.say( message.user + ': ' + message.match_data[1] + ' are NOT SILLY. Don't joke!' )
       })
 
-    }).connect(options)
+    }).connect( options )
 
 Really. That's it.
 
@@ -67,11 +67,11 @@ The `connect` method returns an object with some handy methods that you can use 
 
 Example:
 
-    var superBot = jerk( ... ).connect(options)
+    var superBot = jerk( ... ).connect( options )
     // Later...
-    superBot.say('#myChan', 'Soup noobs?')
-    superBot.join('#haters')
-    superBot.action('#hates', 'hates all of you!')
+    superBot.say( '#myChan', 'Soup noobs?' )
+    superBot.join( '#haters' )
+    superBot.action( '#hates', 'hates all of you!' )
 
 I think everything there is pretty self-explanatory, no? 
 
@@ -83,23 +83,26 @@ Run your bot on a remote server:
 
     nohup node yourBot9001.js &
 
+Although I recommend using something like [forever](https://github.com/indexzero/forever) to keep your bot running for a while.
+
 Done.
 
 ### A Better Example
 
-Here's a more practical example, meet [protobot](http://github.com/gf3/protobot/blob/master/protobot.js). Protobot hangs out on [Freenode#prototype](irc://irc.freenode.net/prototype) all day &ndash; stop by and say hi!
+Here's a more practical example, meet [protobot](https://github.com/gf3/protobot/blob/master/protobot.js). Protobot hangs out on [Freenode#prototype](irc://irc.freenode.net/prototype) all day &ndash; stop by and say hi!
 
 A few bots using Jerk:
 
-* [Protobot](http://github.com/gf3/protobot)
-* [csbot](http://github.com/rdrake/csbot)
+* [Protobot](https://github.com/gf3/protobot)
+* [csbot](https://github.com/rdrake/csbot)
+* [Codebot](https://github.com/BHSPitMonkey/Codebot)
 * Crockbot
 
 Wrote a bot with Jerk? [Email me](mailto:gianni@runlevel6.org) and I'll add it to the list!
 
 ## Credit & Junk
 
-Written by [Gianni Chiappetta](http://github.com/gf3) &ndash; [gf3.ca](http://gf3.ca)
+Written by [Gianni Chiappetta](https://github.com/gf3) &ndash; [gf3.ca](http://gf3.ca)
 
 Jerk is [UNLICENSED](http://unlicense.org/).
 
