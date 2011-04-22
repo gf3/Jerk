@@ -18,29 +18,35 @@ If you prefer straight-up git:
 
 Hoo haa, now that we're locked and loaded, let's write a goddamn bot! We need to include Jerk:
 
-    var jerk = require( 'jerk' )
+```javascript
+var jerk = require( 'jerk' )
+```
 
 You'll need some `options`. Jerk takes the exact same options object as the [IRC-js library](https://github.com/gf3/IRC-js/). Let's just go ahead and supply some basic info:
 
-    var options =
-      { server: 'irc.freenode.net'
-      , nick: 'YourBot9001'
-      , channels: [ '#your-channel' ]
-      }
+```javascript
+var options =
+  { server: 'irc.freenode.net'
+  , nick: 'YourBot9001'
+  , channels: [ '#your-channel' ]
+  }
+```
 
 Hah, now you're going to cry once you see how easy this is:
 
-    jerk( function( j ) {
+```javascript
+jerk( function( j ) {
 
-      j.watch_for( 'soup', function( message ) {
-        message.say( message.user + ': soup is good food!' )
-      })
+  j.watch_for( 'soup', function( message ) {
+    message.say( message.user + ': soup is good food!' )
+  })
 
-      j.watch_for( /^(.+) are silly$/, function( message ) {
-        message.say( message.user + ': ' + message.match_data[1] + ' are NOT SILLY. Don't joke!' )
-      })
+  j.watch_for( /^(.+) are silly$/, function( message ) {
+    message.say( message.user + ': ' + message.match_data[1] + ' are NOT SILLY. Don't joke!' )
+  })
 
-    }).connect( options )
+}).connect( options )
+```
 
 Really. That's it.
 
@@ -48,30 +54,36 @@ Really. That's it.
 
 The jerk object (`j`) has only one method: `watch_for`. Which takes two arguments, the first can be either a string or a regex to match messages against. The second argument is your hollaback function for when a match is found. The hollaback receives only one argument, the `message` object. It looks like this:
 
-    { user:       String
-    , source:     String
-    , match_data: Array
-    , say:        Function( message )
-    }
+```javascript
+{ user:       String
+, source:     String
+, match_data: Array
+, say:        Function( message )
+}
+```
 
 One thing I will tell you though, is the `say` method is smart enough to reply to the context that the message was received, so you don't need to pass it any extra info, just a reply :)
 
 The `connect` method returns an object with some handy methods that you can use outside of your `watch_for`s:
 
-    { say:    Function( destination, message )
-    , action: Function( destination, action )
-    , part:   Function( channel )
-    , join:   Function( channel )
-    , quit:   Function( message )
-    }
+```javascript
+{ say:    Function( destination, message )
+, action: Function( destination, action )
+, part:   Function( channel )
+, join:   Function( channel )
+, quit:   Function( message )
+}
+```
 
 Example:
 
-    var superBot = jerk( ... ).connect( options )
-    // Later...
-    superBot.say( '#myChan', 'Soup noobs?' )
-    superBot.join( '#haters' )
-    superBot.action( '#hates', 'hates all of you!' )
+```javascript
+var superBot = jerk( ... ).connect( options )
+// Later...
+superBot.say( '#myChan', 'Soup noobs?' )
+superBot.join( '#haters' )
+superBot.action( '#hates', 'hates all of you!' )
+```
 
 I think everything there is pretty self-explanatory, no? 
 
