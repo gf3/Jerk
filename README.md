@@ -59,10 +59,11 @@ The jerk object (`j`) has only one method: `watch_for`. Which takes two argument
 , source:     String
 , match_data: Array
 , say:        Function( message )
+, msg:        Function( message )
 }
 ```
 
-One thing I will tell you though, is the `say` method is smart enough to reply to the context that the message was received, so you don't need to pass it any extra info, just a reply :)
+One thing I will tell you though, is the `say` method is smart enough to reply to the context that the message was received, so you don't need to pass it any extra info, just a reply :) However, the `msg` method can be used if you'd like to force sending a message directly to a user (aka a PM).
 
 The `connect` method returns an object with some handy methods that you can use outside of your `watch_for`s:
 
