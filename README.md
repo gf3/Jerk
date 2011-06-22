@@ -116,7 +116,16 @@ Wrote a bot with Jerk? [Email me](mailto:gianni@runlevel6.org) and I'll add it t
 
 ## Credit & Junk
 
-Written by [Gianni Chiappetta](https://github.com/gf3) &ndash; [gf3.ca](http://gf3.ca)
+```javascript
+{ "author" : "Gianni Chiappetta <gianni@runlevel6.org> (http://gf3.ca)"
+, "contributors" :
+  [ "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)"
+  , "Arnaud Berthomier <oz@cyprio.net> (http://wtf.cyprio.net)"
+  , "Suresh Harikrishnan <suresh.harikrishnan@gmail.com> (http://www.activesphere.com)"
+  , "Tomás Senart <tsenart@me.com> http://about.me/tsenart"
+  ]
+}
+```
 
 Jerk is [UNLICENSED](http://unlicense.org/).
 
