@@ -1,12 +1,14 @@
 var jerk = require( '../lib/jerk' ), sys=require('sys');
+var bot
 var options =
   { server: 'localhost'
   , port: 6667
   , nick: 'Bot9121'
   , channels: [ '#jerkbot' ]
+  , onConnect: function() { bot.say('#jerkbot', 'Hello Everybody!') }
   };
 
-jerk( function( j ) {
+bot = jerk( function( j ) {
   j.watch_for( 'soup', function( message ) {
     message.say( message.user + ': soup is good food!' )
   });
