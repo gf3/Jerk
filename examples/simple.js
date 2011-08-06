@@ -5,7 +5,10 @@ var options =
   , port: 6667
   , nick: 'Bot9121'
   , channels: [ '#jerkbot' ]
-  , onConnect: function() { bot.say('#jerkbot', 'Hello Everybody!') }
+  , onConnect: function() { 
+      bot.say('#jerkbot', 'Hello Everybody!') 
+      bot.irc.topic('#jerkbot', 'The topic is foobar')
+    }
   };
 
 bot = jerk( function( j ) {
