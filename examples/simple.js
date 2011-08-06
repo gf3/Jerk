@@ -17,6 +17,10 @@ bot = jerk( function( j ) {
     message.say( message.user + ': ' + message.match_data[1] + ' are NOT SILLY. Don\'t joke!' )
   });
 
+  j.user_nick_change(function(message) {
+    message.say("You were "  + message.user + ", but you are now " + message.text );
+  });  
+
   j.user_join(function(message) {
     message.say(message.user + ": Hey, welcome!");
   });
