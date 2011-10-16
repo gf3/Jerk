@@ -110,6 +110,7 @@ A few bots using Jerk:
 * [csbot](https://github.com/rdrake/csbot)
 * [Codebot](https://github.com/BHSPitMonkey/Codebot)
 * [Misao-chan](https://github.com/lorentzkim/misao-chan)
+* [node-sedbot](https://github.com/smerrill/node-sedbot)
 * Crockbot
 
 Wrote a bot with Jerk? [Email me](mailto:gianni@runlevel6.org) and I'll add it to the list!
