@@ -1,2 +1,3 @@
 *.swp
 tmp*.js
+node_modules

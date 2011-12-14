@@ -70,6 +70,7 @@ The `connect` method returns an object with some handy methods that you can use 
 ```javascript
 { say:    Function( destination, message )
 , action: Function( destination, action )
+, forget: Function( pattern )
 , part:   Function( channel )
 , join:   Function( channel )
 , quit:   Function( message )
