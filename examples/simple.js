@@ -1,4 +1,4 @@
-var jerk = require( '../lib/jerk' ), sys=require('sys');
+var jerk = require( '../lib/jerk' ), util = require('util');
 var options =
   { server: 'localhost'
   , port: 6667
@@ -20,7 +20,7 @@ jerk( function( j ) {
   });
 
   j.user_leave(function(message) {
-    sys.puts("User: " + message.user + " has left");
+    util.puts("User: " + message.user + " has left");
   });
 }).connect( options );
 
